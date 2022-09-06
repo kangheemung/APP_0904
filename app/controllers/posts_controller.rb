@@ -5,18 +5,18 @@ class PostsController < ApplicationController
    #p "user info============="
    #p current_user.posts
    #p "user info============="
-
   end
   def create
-    post =Post.new(post_params)
+    post =current_user.posts.build(post_params)
       if post.save
-        session[:user_id]=user.id
+        #session[:user_id]=user.id
         redirect_to root_path
       else
         render :new
       end
   end
   def show
+    @post=Post.find(params[:id])
   end
   private
   def post_params
