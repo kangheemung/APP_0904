@@ -3,7 +3,7 @@ class PostsController < ApplicationController
    @post=Post.new
    @posts=Post.all
    #p "user info============="
-   #p current_user.posts
+   #puts current_user.posts
    #p "user info============="
   end
   def create

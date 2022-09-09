@@ -1,19 +1,120 @@
-<h1>Posts#index</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<title><h1>Posts#index</h1></title>
 <p>Find me in app/views/posts/index.html.erb</p>
-<%if session[:user_id]%>
-    <%=form_for :post, url: posts_path do |f|%>
-    <%= f.label  :title%> <br>
-    <%= f.text_field  :title%><br>
-    <%= f.label  :content%> <br>
-    <%= f.text_field  :content%><br>
-    <%= f.submit %><br>
-    <%end%>
-        
-    <p><% @posts.each do|post| %>
-            <%= link_to post.title,"/posts/#{post.id}" %>|<%=post.updated_at%>|<%=post.user.name%><br>
+</head>
+        <body>
+            <h1> Heading one</h1>
+            <h2> Heading two</h2>
+            <h3> Heading three</h3>
+            <h4> Heading Four</h4>
+            <h5> Heading FIve</h5>
+            <h6> Heading Six</h6>
+          <ul>  
+            <li> List Item1</li>
+            <li> List Item2</li>
+            <li>List Item3</li>
+            <li> List Item4</li>
+            <li> List Item5</li>
+            <li> List Item6</li>
+         </ul>
+         <ol>  
+            <li> List Item1</li>
+            <li> List Item2</li>
+            <li> List Item3</li>
+            <li> List Item4</li>
+            <li> List Item5</li>
+            <li> List Item6</li>
+        </ol>  
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                    </tr>
+                </thead> 
+            </table>
+        <tbody>
+        <tr>
+            <td>Brad Traversy</td>
+            <td>brad@something.com</td>
+            <td>33</td>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>jdoe@something.com</td>
+            <td>35</td>
+        </tr>
+        <tr>
+            <td>sara WIlliams</td>
+            <td>sara@something.com</td>
+            <td>25</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <hr>
+    <br>
+<!--Forms-->
+<from action="process.php" method="GET">
+<div>
+    <label>First Name</label>
+    <input type="text" name="first-name" placeholder="Enter_first_name"> </input>
+</div>
+<div>
+    <label>Last Name</label>
+    <input type="text" name="last-name" placeholder="Enter_Last_name"> </input>
+</div> 
+<br>
+<div>
+    <label>Email</label>
+    <input type="email" name="email"  placeholder="email"> </input>
+</div>    
+<div>
+    <label>Message</label>
+    <textarea name="message"> </textarea>
+</div> 
+<br>
+<div>
+    <label>Gender</label>
+    <select name="gender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="other">Other</option>
+    </select>
+</div> 
+<div>
+<label>Age:</label>
+<input type="number" name="age" value="30"> 
+</div> 
+<div>
+<label>Birthday:</label>
+<input type="date" name="birthday" > 
+</div> 
+<br>
+<input type="submit" name="submit" Value="Submit">
+    </from>
+    <button click ="some Functio">Click Me</button>
+    <img src="/Users/wellbegunishalfdone/Desktop" alt="My Sample img">
+
+        <%if session[:user_id]%>
+            <%=form_for :post, url: posts_path do |f|%>
+            <%= f.label  :title%> <br>
+            <%= f.text_field  :title%><br>
+            <%= f.label  :content%> <br>
+            <%= f.text_field  :content%><br>
+            <%= f.submit %><br>
+            <%end%>
+                
+            <p><% @posts.each do|post| %>
+                    <%= link_to post.title,"/posts/#{post.id}" %>|<%=post.updated_at%>|<%=post.user.name%><br>
+                    <%end%></p>
+        <% else %>
+            <p><% @posts.each do|post| %>
+                <%= link_to post.title,"/posts/#{post.id}" %>|<%=post.updated_at%>|<%=post.user.name%><br>
             <%end%></p>
-<% else %>
-    <p><% @posts.each do|post| %>
-        <%= link_to post.title,"/posts/#{post.id}" %>|<%=post.updated_at%>|<%=post.user.name%><br>
-    <%end%></p>
- <%end%>
+        <%end%>
+        </body>
+ </html>
